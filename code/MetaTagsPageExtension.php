@@ -27,12 +27,12 @@ class MetaTagsPageExtension extends DataExtension {
     public function MetaTags(&$tags)
     {
         $page = $this->getOwner();
-        if ($page->has_extension('MetaTagsExtension')) {
+        // if ($page->has_extension('MetaTagsExtension')) {
             $page = $this->getOwner();
             if (strlen($page->MetaTitle)) {
                 $tags = preg_replace('/<title>.*<\/title>/', '<title>' . $page->MetaTitle . '</title>', $tags);
             }
-        }
+        // }
 
         $config = SiteConfig::current_site_config();
         if (!$config->MetaGenerator) {
